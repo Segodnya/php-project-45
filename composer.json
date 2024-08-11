@@ -1,17 +1,21 @@
 {
-    "name": "hexlet/code",
-    "type": "project",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "segodnya",
-            "email": "immortalsteel@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "hexlet/code",
+  "description": "Hexlet Brain-games Project",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Hexlet\\Code\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "segodnya",
+      "email": "immortalsteel@gmail.com"
+    }
+  ],
+  "require": {},
+  "bin": [
+    "bin/brain-games"
+  ]
 }
