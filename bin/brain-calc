@@ -2,7 +2,7 @@
 
 <?php
 
-// Не забывай вызвать chmod +x bin/brain-even
+// Не забывай вызвать chmod +x bin/brain-calc
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -13,6 +13,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Hexlet\Code\Games\Even\evenGame;
+use function Hexlet\Code\Games\Calc\calcGame;
 
-evenGame();
+calcGame();

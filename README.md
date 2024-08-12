@@ -6,4 +6,10 @@
 
 ### Game Preview
 
+#### Even
+
 [![asciicast](https://asciinema.org/a/671779.svg)](https://asciinema.org/a/671779)
+
+#### Calc
+
+[![asciicast](https://asciinema.org/a/hyI08ZpipgrQoq2KVKoAcV5q2.svg)](https://asciinema.org/a/hyI08ZpipgrQoq2KVKoAcV5q2)
