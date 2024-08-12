@@ -12,4 +12,4 @@
 
 #### Calc
 
-[![asciicast](https://asciinema.org/a/hyI08ZpipgrQoq2KVKoAcV5q2.svg)](https://asciinema.org/a/hyI08ZpipgrQoq2KVKoAcV5q2)
+[![asciicast](https://asciinema.org/a/671867.svg)](https://asciinema.org/a/671867)
