@@ -13,3 +13,7 @@
 #### Calc
 
 [![asciicast](https://asciinema.org/a/671870.svg)](https://asciinema.org/a/671870)
+
+#### GCD
+
+[![asciicast](https://asciinema.org/a/671992.svg)](https://asciinema.org/a/671992)
