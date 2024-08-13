@@ -9,7 +9,7 @@ use function cli\prompt;
 
 function welcomeUser()
 {
-    line('Welcome to the Brain Game!');
+    line('Welcome to the Brain Games!');
 
     $name = prompt('May I have your name?');
 
