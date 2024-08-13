@@ -17,3 +17,7 @@
 #### GCD
 
 [![asciicast](https://asciinema.org/a/671992.svg)](https://asciinema.org/a/671992)
+
+#### Progression
+
+[![asciicast](https://asciinema.org/a/671993.svg)](https://asciinema.org/a/671993)
