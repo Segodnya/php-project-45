@@ -8,12 +8,16 @@ use function Hexlet\Code\Cli\welcomeUser;
 
 const ATTEMPTS_COUNT = 3;
 
-function runGame($getQuestionAndAnswer)
+function runGame($getGameRules)
 {
     $name = welcomeUser();
 
+    [$rule, ,] = $getGameRules();
+
+    line($rule);
+
     for ($i = 0; $i < ATTEMPTS_COUNT; $i++) {
-        [$question, $correctAnswer] = $getQuestionAndAnswer();
+        [, $question, $correctAnswer] = $getGameRules();
 
         $isCorrect = playRound($question, $correctAnswer, $name);
 

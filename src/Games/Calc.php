@@ -8,8 +8,10 @@ const OPERATIONS = ['+', '-', '*'];
 const MIN_NUM = 1;
 const MAX_NUM = 100;
 
-function getQuestionAndAnswer()
+function getGameRules()
 {
+    $rule = "What is the result of the expression?";
+
     $num1 = rand(MIN_NUM, MAX_NUM);
     $num2 = rand(MIN_NUM, MAX_NUM);
     $operation = OPERATIONS[array_rand(OPERATIONS)];
@@ -17,7 +19,7 @@ function getQuestionAndAnswer()
     $expression = sprintf('%d %s %d', $num1, $operation, $num2);
     $result = calculate($num1, $num2, $operation);
 
-    return [$expression, (string) $result];
+    return [$rule, $expression, (string) $result];
 }
 
 function calculate($num1, $num2, $operation)
@@ -36,5 +38,5 @@ function calculate($num1, $num2, $operation)
 
 function calcGame()
 {
-    runGame(__NAMESPACE__ . '\getQuestionAndAnswer');
+    runGame(__NAMESPACE__ . '\getGameRules');
 }

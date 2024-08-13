@@ -11,8 +11,10 @@ const MAX_START = 20;
 const MIN_STEP = 2;
 const MAX_STEP = 5;
 
-function getQuestionAndAnswer()
+function getGameRules()
 {
+    $rule = "What number is missing in the progression?";
+
     $length = rand(MIN_LENGTH, MAX_LENGTH);
     $start = rand(MIN_START, MAX_START);
     $step = rand(MIN_STEP, MAX_STEP);
@@ -23,7 +25,7 @@ function getQuestionAndAnswer()
     $correctAnswer = (string) $progression[$hiddenIndex];
     $progression[$hiddenIndex] = '..';
 
-    return [implode(' ', $progression), $correctAnswer];
+    return [$rule, implode(' ', $progression), $correctAnswer];
 }
 
 function createProgression($start, $step, $length)
@@ -33,5 +35,5 @@ function createProgression($start, $step, $length)
 
 function progressionGame()
 {
-    runGame(__NAMESPACE__ . '\getQuestionAndAnswer');
+    runGame(__NAMESPACE__ . '\getGameRules');
 }
