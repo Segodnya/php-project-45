@@ -15,19 +15,34 @@ function runGame($getQuestionAndAnswer)
     for ($i = 0; $i < ATTEMPTS_COUNT; $i++) {
         [$question, $correctAnswer] = $getQuestionAndAnswer();
 
-        line("Question: %s", $question);
+        $isCorrect = playRound($question, $correctAnswer, $name);
 
-        $answer = prompt('Your answer');
-
-        if ($answer !== $correctAnswer) {
-            line("'%s' is the wrong answer ;(. Correct answer was '%s'.", $answer, $correctAnswer);
-            line("Let's try again, %s!", $name);
-
+        if (!$isCorrect) {
             return;
         }
-
-        line('Correct!');
     }
 
     line('Congratulations, %s!', $name);
+}
+
+function playRound($question, $correctAnswer, $name)
+{
+    line("Question: %s", $question);
+    $answer = prompt('Your answer');
+
+    return processAnswer($answer, $correctAnswer, $name);
+}
+
+function processAnswer($answer, $correctAnswer, $name)
+{
+    if ($answer !== $correctAnswer) {
+        line("'%s' is the wrong answer ;(. Correct answer was '%s'.", $answer, $correctAnswer);
+        line("Let's try again, %s!", $name);
+
+        return false;
+    }
+
+    line('Correct!');
+
+    return true;
 }

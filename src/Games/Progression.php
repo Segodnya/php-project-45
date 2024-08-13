@@ -6,18 +6,18 @@ use function Hexlet\Code\Engine\runGame;
 
 const MIN_LENGTH = 5;
 const MAX_LENGTH = 10;
+const MIN_START = 1;
+const MAX_START = 20;
+const MIN_STEP = 2;
+const MAX_STEP = 5;
 
 function getQuestionAndAnswer()
 {
     $length = rand(MIN_LENGTH, MAX_LENGTH);
-    $start = rand(1, 20);
-    $step = rand(2, 5);
+    $start = rand(MIN_START, MAX_START);
+    $step = rand(MIN_STEP, MAX_STEP);
 
-    $progression = [];
-
-    for ($i = 0; $i < $length; $i++) {
-        $progression[] = $start + $i * $step;
-    }
+    $progression = createProgression($start, $step, $length);
 
     $hiddenIndex = rand(0, $length - 1);
     $correctAnswer = (string) $progression[$hiddenIndex];
@@ -26,7 +26,12 @@ function getQuestionAndAnswer()
     return [implode(' ', $progression), $correctAnswer];
 }
 
+function createProgression($start, $step, $length)
+{
+    return array_map(fn($i) => $start + $i * $step, range(0, $length - 1));
+}
+
 function progressionGame()
 {
-    runGame('Hexlet\Code\Games\Progression\getQuestionAndAnswer');
+    runGame(__NAMESPACE__ . '\getQuestionAndAnswer');
 }

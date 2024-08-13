@@ -4,12 +4,15 @@ namespace Hexlet\Code\Games\Calc;
 
 use function Hexlet\Code\Engine\runGame;
 
+const OPERATIONS = ['+', '-', '*'];
+const MIN_NUM = 1;
+const MAX_NUM = 100;
+
 function getQuestionAndAnswer()
 {
-    $operations = ['+', '-', '*'];
-    $num1 = rand(1, 100);
-    $num2 = rand(1, 100);
-    $operation = $operations[array_rand($operations)];
+    $num1 = rand(MIN_NUM, MAX_NUM);
+    $num2 = rand(MIN_NUM, MAX_NUM);
+    $operation = OPERATIONS[array_rand(OPERATIONS)];
 
     $expression = sprintf('%d %s %d', $num1, $operation, $num2);
     $result = calculate($num1, $num2, $operation);
@@ -33,5 +36,5 @@ function calculate($num1, $num2, $operation)
 
 function calcGame()
 {
-    runGame('Hexlet\Code\Games\Calc\getQuestionAndAnswer');
+    runGame(__NAMESPACE__ . '\getQuestionAndAnswer');
 }

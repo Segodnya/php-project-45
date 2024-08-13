@@ -4,10 +4,12 @@ namespace Hexlet\Code\Games\Even;
 
 use function Hexlet\Code\Engine\runGame;
 
+const MIN_NUM = 1;
+const MAX_NUM = 100;
+
 function getQuestionAndAnswer()
 {
-    $number = rand(1, 100);
-
+    $number = rand(MIN_NUM, MAX_NUM);
     $correctAnswer = isEven($number) ? 'yes' : 'no';
 
     return [$number, $correctAnswer];
@@ -20,5 +22,5 @@ function isEven($number)
 
 function evenGame()
 {
-    runGame('Hexlet\Code\Games\Even\getQuestionAndAnswer');
+    runGame(__NAMESPACE__ . '\getQuestionAndAnswer');
 }

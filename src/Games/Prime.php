@@ -4,9 +4,12 @@ namespace Hexlet\Code\Games\Prime;
 
 use function Hexlet\Code\Engine\runGame;
 
+const MIN_NUM = 2;
+const MAX_NUM = 100;
+
 function getQuestionAndAnswer()
 {
-    $num = rand(2, 100);
+    $num = rand(MIN_NUM, MAX_NUM);
     $isPrime = isPrime($num) ? 'yes' : 'no';
 
     return [sprintf('%d', $num), $isPrime];
@@ -29,5 +32,5 @@ function isPrime($number)
 
 function primeGame()
 {
-    runGame('Hexlet\Code\Games\Prime\getQuestionAndAnswer');
+    runGame(__NAMESPACE__ . '\getQuestionAndAnswer');
 }

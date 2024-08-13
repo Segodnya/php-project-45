@@ -4,10 +4,13 @@ namespace Hexlet\Code\Games\Gcd;
 
 use function Hexlet\Code\Engine\runGame;
 
+const MIN_NUM = 1;
+const MAX_NUM = 100;
+
 function getQuestionAndAnswer()
 {
-    $num1 = rand(1, 100);
-    $num2 = rand(1, 100);
+    $num1 = rand(MIN_NUM, MAX_NUM);
+    $num2 = rand(MIN_NUM, MAX_NUM);
     $gcd = calculateGcd($num1, $num2);
 
     return [sprintf('%d %d', $num1, $num2), (string) $gcd];
@@ -16,15 +19,12 @@ function getQuestionAndAnswer()
 function calculateGcd($a, $b)
 {
     while ($b) {
-        $temp = $b;
-        $b = $a % $b;
-        $a = $temp;
+        [$a, $b] = [$b, $a % $b];
     }
-
     return $a;
 }
 
 function gcdGame()
 {
-    runGame('Hexlet\Code\Games\Gcd\getQuestionAndAnswer');
+    runGame(__NAMESPACE__ . '\getQuestionAndAnswer');
 }
