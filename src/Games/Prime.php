@@ -17,7 +17,7 @@ function getGameRules()
     return [$rule, sprintf('%d', $num), $isPrime];
 }
 
-function isPrime($number)
+function isPrime(int $number): bool
 {
     if ($number < 2) {
         return false;

@@ -28,7 +28,7 @@ function getGameRules()
     return [$rule, implode(' ', $progression), $correctAnswer];
 }
 
-function createProgression($start, $step, $length)
+function createProgression(int $start, int $step, int $length): array
 {
     return array_map(fn($i) => $start + $i * $step, range(0, $length - 1));
 }

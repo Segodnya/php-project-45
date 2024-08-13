@@ -2,7 +2,6 @@
 
 namespace Hexlet\Code\Games\Even;
 
-use function cli\line;
 use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 1;
@@ -17,7 +16,7 @@ function getGameRules()
     return [$rule, $number, $correctAnswer];
 }
 
-function isEven($number)
+function isEven(int $number): bool
 {
     return $number % 2 === 0;
 }

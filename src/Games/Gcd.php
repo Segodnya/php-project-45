@@ -18,11 +18,12 @@ function getGameRules()
     return [$rule, sprintf('%d %d', $num1, $num2), (string) $gcd];
 }
 
-function calculateGcd($a, $b)
+function calculateGcd(int $a, int $b): int
 {
     while ($b) {
         [$a, $b] = [$b, $a % $b];
     }
+
     return $a;
 }
 

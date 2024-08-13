@@ -22,7 +22,7 @@ function getGameRules()
     return [$rule, $expression, (string) $result];
 }
 
-function calculate($num1, $num2, $operation)
+function calculate(int $num1, int $num2, string $operation): int
 {
     switch ($operation) {
         case '+':

@@ -8,7 +8,7 @@ use function Hexlet\Code\Cli\welcomeUser;
 
 const ATTEMPTS_COUNT = 3;
 
-function runGame($getGameRules)
+function runGame(callable $getGameRules)
 {
     $name = welcomeUser();
 
@@ -29,7 +29,7 @@ function runGame($getGameRules)
     line('Congratulations, %s!', $name);
 }
 
-function playRound($question, $correctAnswer, $name)
+function playRound(string $question, string $correctAnswer, string $name): bool
 {
     line("Question: %s", $question);
     $answer = prompt('Your answer');
@@ -37,7 +37,7 @@ function playRound($question, $correctAnswer, $name)
     return processAnswer($answer, $correctAnswer, $name);
 }
 
-function processAnswer($answer, $correctAnswer, $name)
+function processAnswer(string $answer, string $correctAnswer, string $name): bool
 {
     if ($answer !== $correctAnswer) {
         line("'%s' is the wrong answer ;(. Correct answer was '%s'.", $answer, $correctAnswer);
