@@ -2,6 +2,7 @@
 
 namespace Hexlet\Code\Games\Prime;
 
+use function Hexlet\Code\Cli\welcomeUser;
 use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 2;
@@ -33,5 +34,7 @@ function isPrime(int $number): bool
 
 function primeGame()
 {
-    runGame(__NAMESPACE__ . '\getGameRules');
+    $playerName = welcomeUser();
+
+    runGame($playerName, __NAMESPACE__ . '\getGameRules');
 }

@@ -2,6 +2,7 @@
 
 namespace Hexlet\Code\Games\Even;
 
+use function Hexlet\Code\Cli\welcomeUser;
 use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 1;
@@ -23,5 +24,7 @@ function isEven(int $number): bool
 
 function evenGame()
 {
-    runGame(__NAMESPACE__ . '\getGameRules');
+    $playerName = welcomeUser();
+
+    runGame($playerName, __NAMESPACE__ . '\getGameRules');
 }

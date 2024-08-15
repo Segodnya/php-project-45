@@ -2,6 +2,7 @@
 
 namespace Hexlet\Code\Games\Calc;
 
+use function Hexlet\Code\Cli\welcomeUser;
 use function Hexlet\Code\Engine\runGame;
 
 const OPERATIONS = ['+', '-', '*'];
@@ -37,5 +38,7 @@ function calculate(int $num1, int $num2, string $operation): int
 
 function calcGame()
 {
-    runGame(__NAMESPACE__ . '\getGameRules');
+    $playerName = welcomeUser();
+
+    runGame($playerName, __NAMESPACE__ . '\getGameRules');
 }

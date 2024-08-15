@@ -2,6 +2,7 @@
 
 namespace Hexlet\Code\Games\Progression;
 
+use function Hexlet\Code\Cli\welcomeUser;
 use function Hexlet\Code\Engine\runGame;
 
 const MIN_LENGTH = 5;
@@ -34,5 +35,7 @@ function createProgression(int $start, int $step, int $length): array
 
 function progressionGame()
 {
-    runGame(__NAMESPACE__ . '\getGameRules');
+    $playerName = welcomeUser();
+
+    runGame($playerName, __NAMESPACE__ . '\getGameRules');
 }
