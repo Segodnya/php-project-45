@@ -6,14 +6,14 @@ use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 1;
 const MAX_NUM = 100;
+const RULE = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function getGameRules()
 {
-    $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
     $number = rand(MIN_NUM, MAX_NUM);
     $correctAnswer = isEven($number) ? 'yes' : 'no';
 
-    return [$rule, $number, $correctAnswer];
+    return [RULE, $number, $correctAnswer];
 }
 
 function isEven(int $number): bool

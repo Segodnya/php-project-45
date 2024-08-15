@@ -6,16 +6,15 @@ use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 1;
 const MAX_NUM = 100;
+const RULE = "Find the greatest common divisor of given numbers.";
 
 function getGameRules()
 {
-    $rule = "Find the greatest common divisor of given numbers.";
-
     $num1 = rand(MIN_NUM, MAX_NUM);
     $num2 = rand(MIN_NUM, MAX_NUM);
     $gcd = calculateGcd($num1, $num2);
 
-    return [$rule, sprintf('%d %d', $num1, $num2), (string) $gcd];
+    return [RULE, sprintf('%d %d', $num1, $num2), (string) $gcd];
 }
 
 function calculateGcd(int $a, int $b): int
