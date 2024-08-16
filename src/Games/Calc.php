@@ -2,6 +2,8 @@
 
 namespace Hexlet\Code\Games\Calc;
 
+use Hexlet\Code\Engine;
+
 use function Hexlet\Code\Engine\runGame;
 
 const OPERATIONS = ['+', '-', '*'];
@@ -9,16 +11,20 @@ const MIN_NUM = 1;
 const MAX_NUM = 100;
 const RULE = "What is the result of the expression?";
 
-function getGameRules()
+function getQuestionsAndAnswers(): array
 {
-    $num1 = rand(MIN_NUM, MAX_NUM);
-    $num2 = rand(MIN_NUM, MAX_NUM);
-    $operation = OPERATIONS[array_rand(OPERATIONS)];
+    $questionsAndAnswers = [];
 
-    $expression = sprintf('%d %s %d', $num1, $operation, $num2);
-    $result = calculate($num1, $num2, $operation);
+    for ($i = 0; $i < Engine\ATTEMPTS_COUNT; $i++) {
+        $num1 = rand(MIN_NUM, MAX_NUM);
+        $num2 = rand(MIN_NUM, MAX_NUM);
+        $operation = OPERATIONS[array_rand(OPERATIONS)];
+        $expression = sprintf('%d %s %d', $num1, $operation, $num2);
+        $result = calculate($num1, $num2, $operation);
+        $questionsAndAnswers[] = [$expression, (string) $result];
+    }
 
-    return [RULE, $expression, (string) $result];
+    return $questionsAndAnswers;
 }
 
 function calculate(int $num1, int $num2, string $operation): int
@@ -37,5 +43,6 @@ function calculate(int $num1, int $num2, string $operation): int
 
 function calcGame()
 {
-    runGame(__NAMESPACE__ . '\getGameRules');
+    $questionsAndAnswers = getQuestionsAndAnswers();
+    runGame(RULE, $questionsAndAnswers);
 }

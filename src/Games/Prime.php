@@ -2,18 +2,25 @@
 
 namespace Hexlet\Code\Games\Prime;
 
+use Hexlet\Code\Engine;
+
 use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 2;
 const MAX_NUM = 100;
 const RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function getGameRules()
+function getQuestionsAndAnswers(): array
 {
-    $num = rand(MIN_NUM, MAX_NUM);
-    $isPrime = isPrime($num) ? 'yes' : 'no';
+    $questionsAndAnswers = [];
 
-    return [RULE, sprintf('%d', $num), $isPrime];
+    for ($i = 0; $i < Engine\ATTEMPTS_COUNT; $i++) {
+        $num = rand(MIN_NUM, MAX_NUM);
+        $isPrime = isPrime($num) ? 'yes' : 'no';
+        $questionsAndAnswers[] = [sprintf('%d', $num), $isPrime];
+    }
+
+    return $questionsAndAnswers;
 }
 
 function isPrime(int $number): bool
@@ -33,5 +40,6 @@ function isPrime(int $number): bool
 
 function primeGame()
 {
-    runGame(__NAMESPACE__ . '\getGameRules');
+    $questionsAndAnswers = getQuestionsAndAnswers();
+    runGame(RULE, $questionsAndAnswers);
 }

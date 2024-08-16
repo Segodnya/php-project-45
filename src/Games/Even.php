@@ -2,18 +2,25 @@
 
 namespace Hexlet\Code\Games\Even;
 
+use Hexlet\Code\Engine;
+
 use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 1;
 const MAX_NUM = 100;
 const RULE = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function getGameRules()
+function getQuestionsAndAnswers(): array
 {
-    $number = rand(MIN_NUM, MAX_NUM);
-    $correctAnswer = isEven($number) ? 'yes' : 'no';
+    $questionsAndAnswers = [];
 
-    return [RULE, $number, $correctAnswer];
+    for ($i = 0; $i < Engine\ATTEMPTS_COUNT; $i++) {
+        $number = rand(MIN_NUM, MAX_NUM);
+        $correctAnswer = isEven($number) ? 'yes' : 'no';
+        $questionsAndAnswers[] = [$number, $correctAnswer];
+    }
+
+    return $questionsAndAnswers;
 }
 
 function isEven(int $number): bool
@@ -23,5 +30,6 @@ function isEven(int $number): bool
 
 function evenGame()
 {
-    runGame(__NAMESPACE__ . '\getGameRules');
+    $questionsAndAnswers = getQuestionsAndAnswers();
+    runGame(RULE, $questionsAndAnswers);
 }
