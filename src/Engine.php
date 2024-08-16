@@ -18,7 +18,7 @@ function runGame(string $rule, array $questionsAndAnswers)
 
     for ($i = 0; $i < ATTEMPTS_COUNT; $i++) {
         [$question, $correctAnswer] = $questionsAndAnswers[$i];
-        
+
         $isCorrect = playRound($question, $correctAnswer, $name);
 
         if (!$isCorrect) {
