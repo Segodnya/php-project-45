@@ -2,7 +2,6 @@
 
 namespace Hexlet\Code\Games\Gcd;
 
-use function Hexlet\Code\Cli\welcomeUser;
 use function Hexlet\Code\Engine\runGame;
 
 const MIN_NUM = 1;
@@ -29,7 +28,5 @@ function calculateGcd(int $a, int $b): int
 
 function gcdGame()
 {
-    $playerName = welcomeUser();
-
-    runGame($playerName, __NAMESPACE__ . '\getGameRules');
+    runGame(__NAMESPACE__ . '\getGameRules');
 }
